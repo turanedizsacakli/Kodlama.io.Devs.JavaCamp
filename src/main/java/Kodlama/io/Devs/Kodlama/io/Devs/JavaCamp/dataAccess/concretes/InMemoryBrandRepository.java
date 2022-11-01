@@ -11,46 +11,54 @@ import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.entities.concretes.ProgrammingLa
 @Repository
 public class InMemoryBrandRepository implements ProgrammingLanguageRepository {
 
-	List<ProgrammingLanguage> _programmingLanguage;
+	List<ProgrammingLanguage> _programmingLanguages;
 	
 	public InMemoryBrandRepository() {
-		_programmingLanguage=new ArrayList<ProgrammingLanguage>();
-		_programmingLanguage.add(new ProgrammingLanguage( 1, "python"));
-		_programmingLanguage.add(new ProgrammingLanguage( 2, "C#"));
-		_programmingLanguage.add(new ProgrammingLanguage( 3, "java"));
+		_programmingLanguages=new ArrayList<ProgrammingLanguage>();
+		_programmingLanguages.add(new ProgrammingLanguage( 1, "python"));
+		_programmingLanguages.add(new ProgrammingLanguage( 2, "C#"));
+		_programmingLanguages.add(new ProgrammingLanguage( 3, "java"));
 	}
 
 	
 	@Override
 	public List<ProgrammingLanguage> getAll() {
 		
-		return _programmingLanguage;
+		return _programmingLanguages;
 	}
 
 	@Override
 	public void add(ProgrammingLanguage programmingLanguage) {
 		
-		_programmingLanguage.add(programmingLanguage);
+		_programmingLanguages.add(programmingLanguage);
 
 	}
 
 	@Override
-	public void update() {
+	public void update(ProgrammingLanguage programmingLanguage) {
 		
-		
+		for (ProgrammingLanguage _programmingLanguage : _programmingLanguages) {
+			if (_programmingLanguage.getId() == programmingLanguage.getId()) {
+					_programmingLanguage.setProgrammingName(programmingLanguage.getProgrammingName());
+				}
+		}
 	}
 
 	@Override
-	public void delete() {
-		
+	public void delete(int id) {
+		_programmingLanguages.remove(getById(id));
 		
 	}
 
 
 	@Override
-	public void add() {
-		
-		
+	public ProgrammingLanguage getById(int id) {
+		for (ProgrammingLanguage programmingLanguage : _programmingLanguages) {
+				if (programmingLanguage.getId() == id) {
+						return programmingLanguage;
+					}
+			}
+		return null;
 	}
-
+	
 }

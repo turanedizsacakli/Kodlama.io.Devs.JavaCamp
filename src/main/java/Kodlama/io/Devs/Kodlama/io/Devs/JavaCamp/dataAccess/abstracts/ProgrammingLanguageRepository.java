@@ -10,9 +10,8 @@ import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.entities.concretes.ProgrammingLa
 public interface ProgrammingLanguageRepository {
 
 	List<ProgrammingLanguage> getAll();
-	void add();
-	void update();
-	void delete();
+	void update(ProgrammingLanguage programmingLanguage);
+	void delete(int id);
 	void add(ProgrammingLanguage programmingLanguage);
-	
+	ProgrammingLanguage getById(int id);
 }
