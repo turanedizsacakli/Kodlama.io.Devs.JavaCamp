@@ -24,20 +24,20 @@ public class ProgrammingLanguagesController {
 		this.programmingLanguageService = programmingLanguageService;
 	}
 	
-	@PostMapping("/add")
-	public void add(ProgrammingLanguage programmingLanguage) {
-		programmingLanguageService.add(programmingLanguage);
-	}
-
-	@DeleteMapping("/delete")
-	public void delete(int id) {
-		programmingLanguageService.delete(id);
-	}
-	
-	@PostMapping("update")
-	public void update(ProgrammingLanguage programmingLanguage) {
-		programmingLanguageService.update(programmingLanguage);
-	}
+//	@PostMapping("/add")
+//	public void add(ProgrammingLanguage programmingLanguage) {
+//		programmingLanguageService.add(programmingLanguage);
+//	}
+//
+//	@DeleteMapping("/delete")
+//	public void delete(int id) {
+//		programmingLanguageService.delete(id);
+//	}
+//	
+//	@PostMapping("update")
+//	public void update(ProgrammingLanguage programmingLanguage) {
+//		programmingLanguageService.update(programmingLanguage);
+//	}
 
 
 	@GetMapping("/getall")
@@ -45,8 +45,8 @@ public class ProgrammingLanguagesController {
 		return programmingLanguageService.getAll();
 	}
 
-	@GetMapping("/getbyid")
-	public ProgrammingLanguage getById(int id) {
-		return programmingLanguageService.getById(id);
-	}
+//	@GetMapping("/getbyid")
+//	public ProgrammingLanguage getById(int id) {
+//		return programmingLanguageService.getById(id);
+//	}
 }

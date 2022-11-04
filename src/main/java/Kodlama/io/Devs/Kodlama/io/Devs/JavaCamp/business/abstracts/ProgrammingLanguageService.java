@@ -7,8 +7,8 @@ import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.entities.concretes.ProgrammingLa
 public interface ProgrammingLanguageService {
 
 	List<ProgrammingLanguage> getAll();
-	void update(ProgrammingLanguage programmingLanguage);
-	void delete(int id);
-	void add(ProgrammingLanguage programmingLanguage);
-	ProgrammingLanguage getById(int id);
+//	void update(ProgrammingLanguage programmingLanguage);
+//	void delete(int id);
+//	void add(ProgrammingLanguage programmingLanguage);
+//	ProgrammingLanguage getById(int id);
 }

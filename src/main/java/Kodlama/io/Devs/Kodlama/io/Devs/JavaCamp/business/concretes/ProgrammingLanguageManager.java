@@ -24,43 +24,44 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 	@Override
 	public List<ProgrammingLanguage> getAll() {
 
-		return programmingLanguageRepository.getAll();
+		//return programmingLanguageRepository.getAll();
+		return programmingLanguageRepository.findAll();
 	}
 
 
-	@Override
-	public void update(ProgrammingLanguage programmingLanguage) {
-		programmingLanguageRepository.update(programmingLanguage);
-		
-	}
-
-
-	@Override
-	public void delete(int id) {
-		programmingLanguageRepository.delete(id);
-		
-	}
-
-
-	@Override
-	public void add(ProgrammingLanguage programmingLanguage) {
-		var languages = programmingLanguageRepository.getAll();
-		for (ProgrammingLanguage language: languages ) {
-			if (programmingLanguage.getProgrammingName().equals(language.getProgrammingName())) {
-				System.out.println("Name cannot be same : " + programmingLanguage.getProgrammingName());
-				return;
-			}
-		}
-		if (programmingLanguage.getProgrammingName() == "" || programmingLanguage.getProgrammingName() == null) {
-			System.out.println("You have to write a name...");
-			return;
-		}
-		programmingLanguageRepository.add(programmingLanguage);	
-	}
-
-	@Override
-	public ProgrammingLanguage getById(int id) {
-		return programmingLanguageRepository.getById(id);
-	}
+//	@Override
+//	public void update(ProgrammingLanguage programmingLanguage) {
+//		programmingLanguageRepository.update(programmingLanguage);
+//		
+//	}
+//
+//
+//	@Override
+//	public void delete(int id) {
+//		programmingLanguageRepository.delete(id);
+//		
+//	}
+//
+//
+//	@Override
+//	public void add(ProgrammingLanguage programmingLanguage) {
+//		var languages = programmingLanguageRepository.getAll();
+//		for (ProgrammingLanguage language: languages ) {
+//			if (programmingLanguage.getProgrammingName().equals(language.getProgrammingName())) {
+//				System.out.println("Name cannot be same : " + programmingLanguage.getProgrammingName());
+//				return;
+//			}
+//		}
+//		if (programmingLanguage.getProgrammingName() == "" || programmingLanguage.getProgrammingName() == null) {
+//			System.out.println("You have to write a name...");
+//			return;
+//		}
+//		programmingLanguageRepository.add(programmingLanguage);	
+//	}
+//
+//	@Override
+//	public ProgrammingLanguage getById(int id) {
+//		return programmingLanguageRepository.getById(id);
+//	}
 
 }
