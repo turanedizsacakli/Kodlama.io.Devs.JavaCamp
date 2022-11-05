@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.business.abstracts.ProgrammingLanguageService;
-import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.entities.concretes.ProgrammingLanguage;
+import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.business.requests.programmingLanguageRequests.CraeteProgrammingLanguageRequest;
+import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.business.requests.programmingLanguageRequests.DeleteProgrammingLanguageRequest;
+import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.business.requests.programmingLanguageRequests.UpdateProgrammingLanguageRequest;
+import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.business.responses.programmingLanguageResponses.GetAllProgrammingLanguageResponse;
+import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.business.responses.programmingLanguageResponses.GetByIdProgrammingLanguageResponse;
 
 @RestController
 @RequestMapping("/api/programminglanguages")
@@ -24,29 +28,29 @@ public class ProgrammingLanguagesController {
 		this.programmingLanguageService = programmingLanguageService;
 	}
 	
-//	@PostMapping("/add")
-//	public void add(ProgrammingLanguage programmingLanguage) {
-//		programmingLanguageService.add(programmingLanguage);
-//	}
+	@PostMapping("/add")
+	public void add(CraeteProgrammingLanguageRequest craeteProgrammingLanguageRequest) {
+		programmingLanguageService.add(craeteProgrammingLanguageRequest);
+	}
 //
-//	@DeleteMapping("/delete")
-//	public void delete(int id) {
-//		programmingLanguageService.delete(id);
-//	}
-//	
-//	@PostMapping("update")
-//	public void update(ProgrammingLanguage programmingLanguage) {
-//		programmingLanguageService.update(programmingLanguage);
-//	}
+	@DeleteMapping("/delete")
+	public void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest) {
+		programmingLanguageService.delete(deleteProgrammingLanguageRequest);
+	}
+	
+	@PostMapping("update")
+	public void update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) {
+		programmingLanguageService.update(updateProgrammingLanguageRequest);
+	}
 
 
 	@GetMapping("/getall")
-	public List<ProgrammingLanguage> getAll() {
+	public List<GetAllProgrammingLanguageResponse> getAll() {
 		return programmingLanguageService.getAll();
 	}
 
-//	@GetMapping("/getbyid")
-//	public ProgrammingLanguage getById(int id) {
-//		return programmingLanguageService.getById(id);
-//	}
+	@GetMapping("/getbyid")
+	public GetByIdProgrammingLanguageResponse getById(int id) {
+		return programmingLanguageService.getById(id);
+	}
 }

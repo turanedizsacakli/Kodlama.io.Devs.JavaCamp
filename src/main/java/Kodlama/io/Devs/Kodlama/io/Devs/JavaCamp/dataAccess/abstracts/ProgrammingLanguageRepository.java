@@ -7,9 +7,4 @@ import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.entities.concretes.ProgrammingLa
 
 public interface ProgrammingLanguageRepository extends JpaRepository<ProgrammingLanguage, Integer>{
 
-//	List<ProgrammingLanguage> getAll();
-//	void update(ProgrammingLanguage programmingLanguage);
-//	void delete(int id);
-//	void add(ProgrammingLanguage programmingLanguage);
-//	ProgrammingLanguage getById(int id);
 }
