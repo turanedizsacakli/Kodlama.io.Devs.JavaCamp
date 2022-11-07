@@ -36,8 +36,8 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 		
 		for (ProgrammingLanguage programmingLanguage : programmingLanguages) {
 			GetAllProgrammingLanguageResponse responseItem=new GetAllProgrammingLanguageResponse();
-			responseItem.setId(programmingLanguage.getId());
-			responseItem.setName(programmingLanguage.getProgrammingName());
+			responseItem.setId(programmingLanguage.getProgrammingLanguageId());
+			responseItem.setName(programmingLanguage.getProgrammingLanguageName());
 			
 		} 
 		//return programmingLanguageRepository.getAll();
@@ -48,8 +48,8 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 	@Override
 	public void update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) {
 		//programmingLanguageRepository.update(programmingLanguage);
-		_programmingLanguage.setProgrammingName(updateProgrammingLanguageRequest.getName());
-		_programmingLanguage.setId(updateProgrammingLanguageRequest.getId());
+		_programmingLanguage.setProgrammingLanguageName(updateProgrammingLanguageRequest.getName());
+		_programmingLanguage.setProgrammingLanguageId(updateProgrammingLanguageRequest.getId());
 		programmingLanguageRepository.save(_programmingLanguage);
 	}
 //
@@ -67,7 +67,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 		
 		var languages = programmingLanguageRepository.findAll();
 		for (ProgrammingLanguage language: languages ) {
-			if (craeteProgrammingLanguageRequest.getName().equals(language.getProgrammingName())) {
+			if (craeteProgrammingLanguageRequest.getName().equals(language.getProgrammingLanguageName())) {
 				System.out.println("Name cannot be same : " + craeteProgrammingLanguageRequest.getName());
 				return;
 			}
@@ -76,7 +76,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 			System.out.println("You have to write a name...");
 			return;
 		}
-		_programmingLanguage.setProgrammingName(craeteProgrammingLanguageRequest.getName());
+		_programmingLanguage.setProgrammingLanguageName(craeteProgrammingLanguageRequest.getName());
 		programmingLanguageRepository.save(_programmingLanguage);	
 	}
 
@@ -85,7 +85,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 	public GetByIdProgrammingLanguageResponse getById(int id) {
 		ProgrammingLanguage programmingLanguage=programmingLanguageRepository.findById(id).get();
 		GetByIdProgrammingLanguageResponse getByIdProgrammingLanguageResponse =new GetByIdProgrammingLanguageResponse();
-		getByIdProgrammingLanguageResponse.setName(programmingLanguage.getProgrammingName());
+		getByIdProgrammingLanguageResponse.setName(programmingLanguage.getProgrammingLanguageName());
 		return getByIdProgrammingLanguageResponse;
 	}
 

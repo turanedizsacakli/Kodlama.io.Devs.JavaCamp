@@ -2,6 +2,7 @@ package Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.entities.concretes;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import Kodlama.io.Devs.Kodlama.io.Devs.JavaCamp.entities.abstracts.EntityRepository;
 import lombok.AllArgsConstructor;
@@ -24,12 +27,14 @@ public class ProgrammingLanguage implements EntityRepository{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
-	@Column(name="programmingName")
-	private String programmingName;
+	@Column(name="programmingLanguageId")
+	private int programmingLanguageId;
+	
+	@Column(name="programmingLanguageName")
+	private String programmingLanguageName;
 
-
-//	@OneToMany(mappedBy = "programmingLanguage")
-//	private List<ProgrammingLanguageTechnology> programmingLanguageTechnologies;
+	@JsonIgnore
+	//@OneToMany(mappedBy = "programmingLanguage")
+	@OneToMany(mappedBy="programmingLanguage", cascade = CascadeType.DETACH)
+	private List<ProgrammingLanguageTechnology> programmingLanguageTechnologies;
 }
