@@ -12,7 +12,7 @@ public interface ProgrammingLanguageTechnologyService {
 
 	List<GetAllProgrammingLanguageTechnologyResponse> getAll();
 	void update(UpdateProgrammingLanguageTechnologyRequest updateProgrammingLanguageTechnologyRequest);
-	//void delete(DeleteProgrammingLanguageTechnologyRequest deleteProgrammingLanguageTechnologyRequest);
+	void delete(DeleteProgrammingLanguageTechnologyRequest deleteProgrammingLanguageTechnologyRequest);
 	void add(CreateProgrammingLanguageTechnologyRequest craeteProgrammingLanguageTechnologyRequest );
 	GetByIdProgrammingLanguageTechnologyResponse getById(int id);
 }

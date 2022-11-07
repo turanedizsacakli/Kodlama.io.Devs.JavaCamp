@@ -46,11 +46,10 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 		programmingLanguageTechnologyRepository.save(_programmingLanguageTechnology);
 	}
 
-//	@Override
-//	public void delete(DeleteProgrammingLanguageTechnologyRequest deleteProgrammingLanguageTechnologyRequest) {
-//		programmingLanguageTechnologyRepository.deleteById(deleteProgrammingLanguageTechnologyRequest.getId());
-//		
-//	}
+	@Override
+	public void delete(DeleteProgrammingLanguageTechnologyRequest deleteProgrammingLanguageTechnologyRequest) {
+		programmingLanguageTechnologyRepository.deleteById(deleteProgrammingLanguageTechnologyRequest.getId());
+	}
 
 	@Override
 	public void add(CreateProgrammingLanguageTechnologyRequest craeteProgrammingLanguageTechnologyRequest) {

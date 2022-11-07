@@ -40,20 +40,18 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 			responseItem.setName(programmingLanguage.getProgrammingLanguageName());
 			
 		} 
-		//return programmingLanguageRepository.getAll();
+
 		return programmingLanguageResponse;
 	}
 
 
 	@Override
 	public void update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) {
-		//programmingLanguageRepository.update(programmingLanguage);
 		_programmingLanguage.setProgrammingLanguageName(updateProgrammingLanguageRequest.getName());
 		_programmingLanguage.setProgrammingLanguageId(updateProgrammingLanguageRequest.getId());
 		programmingLanguageRepository.save(_programmingLanguage);
 	}
-//
-//
+
 	@Override
 	public void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest) {
 		
