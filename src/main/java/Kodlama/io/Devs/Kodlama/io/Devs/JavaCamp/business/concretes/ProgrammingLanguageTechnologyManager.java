@@ -30,13 +30,16 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 	public List<GetAllProgrammingLanguageTechnologyResponse> getAll() {
 		
 		List<ProgrammingLanguageTechnology> programmingLanguageTechnologies= programmingLanguageTechnologyRepository.findAll();
-		List<GetAllProgrammingLanguageTechnologyResponse> programmingLanguageTechnologyResponse=new ArrayList<GetAllProgrammingLanguageTechnologyResponse>();
+		List<GetAllProgrammingLanguageTechnologyResponse> getAllProgrammingLanguageTechnologyResponse=new ArrayList<GetAllProgrammingLanguageTechnologyResponse>();
+		
 		for (ProgrammingLanguageTechnology programmingLanguageTechnology : programmingLanguageTechnologies) {
 			GetAllProgrammingLanguageTechnologyResponse technologyResponseItem = new GetAllProgrammingLanguageTechnologyResponse() ;
 			technologyResponseItem.setId(programmingLanguageTechnology.getTechnologyId());
 			technologyResponseItem.setName(programmingLanguageTechnology.getTechnologyName());
+			
+			getAllProgrammingLanguageTechnologyResponse.add(technologyResponseItem);
 		}
-		return programmingLanguageTechnologyResponse;
+		return getAllProgrammingLanguageTechnologyResponse;
 	}
 
 	@Override
@@ -73,7 +76,7 @@ public class ProgrammingLanguageTechnologyManager implements ProgrammingLanguage
 		_programmingLanguageTechnology=programmingLanguageTechnologyRepository.findById(id).get();
 		GetByIdProgrammingLanguageTechnologyResponse getByIdProgrammingLanguageTechnologyResponse= new GetByIdProgrammingLanguageTechnologyResponse();
 		getByIdProgrammingLanguageTechnologyResponse.setName(_programmingLanguageTechnology.getTechnologyName());
-		return null;
+		return getByIdProgrammingLanguageTechnologyResponse;
 	}
 
 }
